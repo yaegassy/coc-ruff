@@ -2,6 +2,8 @@
 
 [ruff-lsp](https://github.com/charliermarsh/ruff-lsp) extension for [coc.nvim](https://github.com/neoclide/coc.nvim).
 
+<img width="791" alt="coc-ruff-demo" src="https://user-images.githubusercontent.com/188642/212628682-82b1f97d-f349-427f-95a0-f53c46c9854b.png">
+
 ## Install
 
 **e.g. vim-plug**:
