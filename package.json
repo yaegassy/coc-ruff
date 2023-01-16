@@ -1,0 +1,198 @@
+{
+  "name": "@yaegassy/coc-ruff",
+  "version": "0.0.1",
+  "ruffLspVersion": "0.0.15",
+  "description": "ruff-lsp extension for coc.nvim",
+  "author": "yaegassy <yosstools@gmail.com>",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "keywords": [
+    "coc.nvim",
+    "python",
+    "linting",
+    "ruff",
+    "vim",
+    "neovim"
+  ],
+  "engines": {
+    "coc": "^0.0.80"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yaegassy/coc-ruff"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "lint": "eslint src --ext ts",
+    "clean": "rimraf lib",
+    "watch": "node esbuild.js --watch",
+    "build": "node esbuild.js",
+    "prepare": "node esbuild.js"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 120,
+    "semi": true
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "@types/rimraf": "^3.0.2",
+    "@types/which": "^2.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.48.1",
+    "@typescript-eslint/parser": "^5.48.1",
+    "coc.nvim": "^0.0.82",
+    "esbuild": "^0.16.17",
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.3",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.9.4",
+    "which": "^3.0.0"
+  },
+  "activationEvents": [
+    "onLanguage:python"
+  ],
+  "contributes": {
+    "rootPatterns": [
+      {
+        "filetype": "python",
+        "patterns": [
+          "pyproject.toml",
+          "setup.py",
+          "setup.cfg",
+          "tox.ini",
+          "requirements.txt"
+        ]
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "coc-ruff-lsp configuration",
+      "properties": {
+        "ruff.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable coc-ruff-lsp extension"
+        },
+        "ruff.useDetectRuffCommand": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically detects the ruff command in the execution environment and sets `ruff.path`."
+        },
+        "ruff.serverPath": {
+          "type": "string",
+          "default": "",
+          "description": "Custom path to the ruff-lsp command. If not set, the `ruff-lsp` command found in the current Python environment or venv environment will be used."
+        },
+        "ruff.builtin.pythonPath": {
+          "type": "string",
+          "default": "",
+          "description": "Python 3.x path (Absolute path) to be used for built-in install."
+        },
+        "ruff.logLevel": {
+          "default": "error",
+          "description": "The log level the extension logs at, defaults to 'error'",
+          "enum": [
+            "debug",
+            "error",
+            "info",
+            "off",
+            "warn"
+          ],
+          "scope": "window",
+          "type": "string"
+        },
+        "ruff.args": {
+          "default": [],
+          "description": "Arguments passed in. Each argument is a separate item in the array.",
+          "items": {
+            "type": "string"
+          },
+          "scope": "resource",
+          "type": "array"
+        },
+        "ruff.path": {
+          "default": [],
+          "description": "When set to a path to the `ruff` binary, extension will use that.",
+          "scope": "resource",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "ruff.importStrategy": {
+          "default": "useBundled",
+          "description": "Defines where `ruff` is imported from. This setting may be ignored if `ruff.path` is set.",
+          "enum": [
+            "useBundled",
+            "fromEnvironment"
+          ],
+          "enumDescriptions": [
+            "Always use the bundled version of `ruff`.",
+            "Use `ruff` from environment, fallback to bundled version only if `ruff` not available in the environment."
+          ],
+          "scope": "window",
+          "type": "string"
+        },
+        "ruff.interpreter": {
+          "default": [],
+          "description": "When set to a path to python executable, extension will use that to launch the server and any subprocess.",
+          "scope": "window",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "ruff.showNotifications": {
+          "default": "off",
+          "description": "Controls when notifications are shown by this extension.",
+          "enum": [
+            "off",
+            "onError",
+            "onWarning",
+            "always"
+          ],
+          "enumDescriptions": [
+            "All notifications are turned off, any errors or warning are still available in the logs.",
+            "Notifications are shown only in the case of an error.",
+            "Notifications are shown for errors and warnings.",
+            "Notifications are show for anything that the server chooses to show."
+          ],
+          "scope": "machine",
+          "type": "string"
+        },
+        "ruff.organizeImports": {
+          "default": true,
+          "description": "Whether to register Ruff as capable of handling `source.organizeImports` actions.",
+          "scope": "window",
+          "type": "boolean"
+        },
+        "ruff.fixAll": {
+          "default": true,
+          "description": "Whether to register Ruff as capable of handling `source.fixAll` actions.",
+          "scope": "window",
+          "type": "boolean"
+        },
+        "ruff.trace.server": {
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "Traces the communication between coc.nvim and the ruff-lsp."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "ruff.builtin.installServer",
+        "title": "Install ruff-lsp"
+      }
+    ]
+  }
+}
