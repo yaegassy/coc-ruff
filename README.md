@@ -6,6 +6,14 @@
 
 ## Install
 
+**CocInstall**:
+
+```vim
+:CocInstall @yaegassy/coc-ruff
+```
+
+> scoped packages
+
 **e.g. vim-plug**:
 
 ```vim
