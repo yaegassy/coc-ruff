@@ -38,12 +38,12 @@ If you do not need this feature, set `ruff.useDetectRuffCommand` to `false`.
 }
 ```
 
-### Order of detection of ruff-lsp used by extensions
+## Order of detection of ruff-lsp used by extensions
 
 `coc-ruff` detects and starts `ruff-lsp` in the following priority order.
 
 1. `ruff.serverPath` (If there is a setting)
-1. current python3/python environment (e.g. ruff-lsp in global or venv)
+1. current python3/python environment (e.g. ruff-lsp in global or virtual environment)
 1. built-in ruff-lsp (Installation commands are also provided)
 
 ## Bult-in install
