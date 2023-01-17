@@ -190,6 +190,10 @@
     },
     "commands": [
       {
+        "command": "ruff.executeAutofix",
+        "title": "Fix all auto-fixable problems"
+      },
+      {
         "command": "ruff.builtin.installServer",
         "title": "Install ruff-lsp"
       }
