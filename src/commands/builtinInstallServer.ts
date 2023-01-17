@@ -1,30 +1,27 @@
-import { commands, ExtensionContext, LanguageClient, services, ServiceStat, window } from 'coc.nvim';
+import { commands, ExtensionContext, LanguageClient, services, ServiceStat } from 'coc.nvim';
 
 import { createLanguageClient } from '../client';
 import { installWrapper } from '../installer';
-import { getRuffLspPath } from '../tool';
+import { getRuffLspPath, getPythonPath } from '../tool';
 
-export function activate(context: ExtensionContext, pythonCommand: string, client: LanguageClient) {
+export function activate(context: ExtensionContext, client?: LanguageClient) {
   context.subscriptions.push(
     commands.registerCommand('ruff.builtin.installServer', async () => {
-      if (pythonCommand) {
-        if (client) {
-          if (client.serviceState !== ServiceStat.Stopped) {
-            await client.stop();
-          }
+      const pythonCommand = getPythonPath();
+      if (client) {
+        if (client.serviceState !== ServiceStat.Stopped) {
+          await client.stop();
         }
-        await installWrapper(pythonCommand, context);
+      }
+      await installWrapper(pythonCommand, context);
 
-        const ruffLspPath = getRuffLspPath(context);
+      const ruffLspPath = getRuffLspPath(context);
 
-        if (!client) {
-          client = createLanguageClient(ruffLspPath);
-          context.subscriptions.push(services.registLanguageClient(client));
-        } else {
-          client.start();
-        }
+      if (!client) {
+        client = createLanguageClient(ruffLspPath);
+        context.subscriptions.push(services.registLanguageClient(client));
       } else {
-        window.showErrorMessage('python3/python command not found');
+        client.start();
       }
     })
   );

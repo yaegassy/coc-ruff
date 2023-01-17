@@ -4,9 +4,9 @@ import fs from 'fs';
 
 import { createLanguageClient } from './client';
 import * as builtinInstallServerCommandFeature from './commands/builtinInstallServer';
-import { getPythonPath, getRuffLspPath } from './tool';
+import { getRuffLspPath } from './tool';
 
-let client: LanguageClient;
+let client: LanguageClient | undefined;
 
 export async function activate(context: ExtensionContext): Promise<void> {
   if (!workspace.getConfiguration('ruff').get('enable')) return;
@@ -16,10 +16,9 @@ export async function activate(context: ExtensionContext): Promise<void> {
     fs.mkdirSync(extensionStoragePath, { recursive: true });
   }
 
-  const ruffLspPath = getRuffLspPath(context);
-  const pythonCommand = getPythonPath();
+  builtinInstallServerCommandFeature.activate(context, client);
 
-  builtinInstallServerCommandFeature.activate(context, pythonCommand, client);
+  const ruffLspPath = getRuffLspPath(context);
 
   if (!ruffLspPath || !fs.existsSync(ruffLspPath)) {
     window.showWarningMessage(
