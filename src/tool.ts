@@ -28,8 +28,8 @@ export function getPythonPath(): string {
 export function getRuffLspPath(context: ExtensionContext) {
   // MEMO: Priority to detect ruff-lsp
   //
-  // 1. ruff.server.commandPath setting
-  // 2. current environment (e.g. global or venv)
+  // 1. ruff.serverPath setting
+  // 2. current python environment (e.g. global or virtual environment)
   // 3. built-in ruff-lsp
 
   // 1
