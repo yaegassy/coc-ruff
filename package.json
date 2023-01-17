@@ -194,6 +194,10 @@
         "title": "Fix all auto-fixable problems"
       },
       {
+        "command": "ruff.restart",
+        "title": "Restart Server"
+      },
+      {
         "command": "ruff.builtin.installServer",
         "title": "Install ruff-lsp"
       }
