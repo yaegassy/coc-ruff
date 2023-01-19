@@ -1,8 +1,10 @@
 import * as lc from 'coc.nvim';
 
-interface ApplyAutofixParams {
+interface ExecuteCommandRequestParams {
   command: string;
   arguments: any[];
 }
 
-export const ExecuteAutofixType = new lc.RequestType<ApplyAutofixParams, any, never>('workspace/executeCommand');
+export const ExecuteCommandRequestType = new lc.RequestType<ExecuteCommandRequestParams, any, never>(
+  'workspace/executeCommand'
+);

@@ -1,5 +1,5 @@
 import { commands, ExtensionContext, LanguageClient, window } from 'coc.nvim';
-import { ExecuteAutofixType } from '../requestTypes';
+import { ExecuteCommandRequestType } from '../requestTypes';
 
 export async function activate(context: ExtensionContext, client: LanguageClient) {
   await client.onReady();
@@ -24,7 +24,7 @@ export async function activate(context: ExtensionContext, client: LanguageClient
         arguments: [textDocument],
       };
 
-      await client.sendRequest(ExecuteAutofixType, params).then(undefined, async () => {
+      await client.sendRequest(ExecuteCommandRequestType, params).then(undefined, async () => {
         await window.showErrorMessage(
           'Failed to apply Ruff fixes to the document. Please consider opening an issue with steps to reproduce.'
         );
