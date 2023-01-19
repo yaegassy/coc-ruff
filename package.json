@@ -194,6 +194,10 @@
         "title": "Fix all auto-fixable problems"
       },
       {
+        "command": "ruff.executeOrganizeImports",
+        "title": "Format imports"
+      },
+      {
         "command": "ruff.restart",
         "title": "Restart Server"
       },
