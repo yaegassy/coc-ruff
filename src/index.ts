@@ -5,6 +5,7 @@ import fs from 'fs';
 import { createLanguageClient } from './client';
 import * as builtinInstallServerCommandFeature from './commands/builtinInstallServer';
 import * as executeAutofixCommandFeature from './commands/executeAutofix';
+import * as executeOrganizeImportsCommandFeature from './commands/executeOrganizeImports';
 import * as restartCommandFeature from './commands/restart';
 import { getRuffLspPath } from './tool';
 
@@ -33,5 +34,6 @@ export async function activate(context: ExtensionContext): Promise<void> {
   context.subscriptions.push(services.registLanguageClient(client));
 
   executeAutofixCommandFeature.activate(context, client);
+  executeOrganizeImportsCommandFeature.activate(context, client);
   restartCommandFeature.activate(context, client);
 }
