@@ -70,7 +70,7 @@ Other settings have the same configuration as [ruff-vscode](https://github.com/c
 
 ## Commands
 
-- `ruff.executeAutofix`: Fix all auto-fixable problems | [DEMO](https://github.com/yaegassy/coc-ruff/pull/1#issuecomment-1385155719)
+- `ruff.executeAutofix`: Fix all auto-fixable problems
 - `ruff.restart`: Restart Server
 - `ruff.builtin.installServer`: Install ruff-lsp
   - It will be installed in this path:
