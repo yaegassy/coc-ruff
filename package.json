@@ -70,12 +70,12 @@
     ],
     "configuration": {
       "type": "object",
-      "title": "coc-ruff-lsp configuration",
+      "title": "coc-ruff configuration",
       "properties": {
         "ruff.enable": {
           "type": "boolean",
           "default": true,
-          "description": "Enable coc-ruff-lsp extension"
+          "description": "Enable coc-ruff extension"
         },
         "ruff.useDetectRuffCommand": {
           "type": "boolean",
