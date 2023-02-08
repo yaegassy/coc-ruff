@@ -1,7 +1,6 @@
 {
   "name": "@yaegassy/coc-ruff",
   "version": "0.1.2",
-  "ruffLspVersion": "0.0.17",
   "description": "ruff-lsp extension for coc.nvim",
   "author": "yaegassy <yosstools@gmail.com>",
   "license": "MIT",
@@ -206,5 +205,8 @@
         "title": "Install ruff-lsp"
       }
     ]
+  },
+  "dependencies": {
+    "toml": "^3.0.0"
   }
 }
