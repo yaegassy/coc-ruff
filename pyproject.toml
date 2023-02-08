@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "coc-ruff"
+version = "0.1.0"
+description = ""
+authors = ["yaegassy <yosstools@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.7,<3.12"
+ruff-lsp = "0.0.17"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
