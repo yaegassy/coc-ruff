@@ -20,24 +20,6 @@
 Plug 'yaegassy/coc-ruff', {'do': 'yarn install --frozen-lockfile'}
 ```
 
-## Note
-
-The `ruff` command used by `ruff-lsp` uses the `ruff` command installed with the `ruff-lsp` dependency.
-
-To use the `ruff` command installed in the virtual environment of a project created by `venv`, `poetry`, etc., `ruff.path` must be set to an absolute path.
-
-`coc-ruff` adds the feature to automatically detect ruff commands in the execution environment and use them in `ruff-lsp`.
-
-If you do not need this feature, set `ruff.useDetectRuffCommand` to `false`.
-
-**coc-settings.json**:
-
-```jsonc
-{
-  "ruff.useDetectRuffCommand": false
-}
-```
-
 ## Order of detection of ruff-lsp used by extensions
 
 `coc-ruff` detects and starts `ruff-lsp` in the following priority order.
@@ -61,7 +43,6 @@ To use the built-in installation feature, execute the following command.
 ## Configuration options
 
 - `ruff.enable`: Enable coc-ruff extension, default: `true`
-- `ruff.useDetectRuffCommand`: Automatically detects the ruff command in the execution environment and sets `ruff.path`, default: `true`
 - `ruff.serverPath`: Custom path to the `ruff-lsp` command. If not set, the `ruff-lsp` command found in the current Python environment or in the venv environment created for the extension will be used, default: `""`
 - `ruff.builtin.pythonPath`: Python 3.x path (Absolute path) to be used for built-in install, default: `""`
 - `ruff.trace.server`: Traces the communication between coc.nvim and the ruff-lsp, default: `"off"`

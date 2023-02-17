@@ -1,7 +1,5 @@
 import { LanguageClient, LanguageClientOptions, ServerOptions, workspace } from 'coc.nvim';
 
-import which from 'which';
-
 export function createLanguageClient(command: string) {
   const serverOptions: ServerOptions = {
     command,
@@ -49,14 +47,5 @@ function convertFromWorkspaceConfigToInitializationOptions() {
 
 function getInitializationOptions() {
   const initializationOptions = convertFromWorkspaceConfigToInitializationOptions();
-
-  // MEMO: Custom Feature
-  if (workspace.getConfiguration('ruff').get<boolean>('useDetectRuffCommand')) {
-    const envRuffCommandPath = which.sync('ruff', { nothrow: true });
-    if (envRuffCommandPath) {
-      initializationOptions.settings.path = [envRuffCommandPath];
-    }
-  }
-
   return initializationOptions;
 }
