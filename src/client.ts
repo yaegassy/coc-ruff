@@ -8,6 +8,7 @@ export function createLanguageClient(command: string) {
   const clientOptions: LanguageClientOptions = {
     documentSelector: ['python'],
     initializationOptions: getInitializationOptions(),
+    disabledFeatures: getLanguageClientDisabledFeatures(),
   };
 
   const client = new LanguageClient('ruff', 'ruff-lsp', serverOptions, clientOptions);
@@ -48,4 +49,15 @@ function convertFromWorkspaceConfigToInitializationOptions() {
 function getInitializationOptions() {
   const initializationOptions = convertFromWorkspaceConfigToInitializationOptions();
   return initializationOptions;
+}
+
+function getLanguageClientDisabledFeatures() {
+  const r: string[] = [];
+  if (getConfigDisableDocumentFormatting()) r.push('documentFormatting');
+
+  return r;
+}
+
+function getConfigDisableDocumentFormatting() {
+  return workspace.getConfiguration('ruff').get<boolean>('disableDocumentFormatting', true);
 }
