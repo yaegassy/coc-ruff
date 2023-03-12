@@ -81,6 +81,11 @@
           "default": true,
           "description": "Disable document formatting only."
         },
+        "ruff.useDetectRuffCommand": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically detects the ruff command in the execution environment and sets `ruff.path`."
+        },
         "ruff.serverPath": {
           "type": "string",
           "default": "",
