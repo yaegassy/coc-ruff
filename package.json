@@ -81,6 +81,11 @@
           "default": true,
           "description": "Disable document formatting only."
         },
+        "ruff.disableHover": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disable hover only."
+        },
         "ruff.useDetectRuffCommand": {
           "type": "boolean",
           "default": true,

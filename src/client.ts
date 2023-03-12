@@ -65,10 +65,15 @@ function getInitializationOptions() {
 function getLanguageClientDisabledFeatures() {
   const r: string[] = [];
   if (getConfigDisableDocumentFormatting()) r.push('documentFormatting');
+  if (getConfigDisableHover()) r.push('hover');
 
   return r;
 }
 
 function getConfigDisableDocumentFormatting() {
   return workspace.getConfiguration('ruff').get<boolean>('disableDocumentFormatting', true);
+}
+
+function getConfigDisableHover() {
+  return workspace.getConfiguration('ruff').get<boolean>('disableHover', false);
 }

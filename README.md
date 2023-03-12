@@ -61,6 +61,7 @@ To use the built-in installation feature, execute the following command.
 ## Configuration options
 
 - `ruff.enable`: Enable coc-ruff extension, default: `true`
+- `ruff.disableHover`: Disable hover only, default: `false`
 - `ruff.useDetectRuffCommand`: Automatically detects the ruff command in the execution environment and sets `ruff.path`, default: `true`
 - `ruff.serverPath`: Custom path to the `ruff-lsp` command. If not set, the `ruff-lsp` command found in the current Python environment or in the venv environment created for the extension will be used, default: `""`
 - `ruff.builtin.pythonPath`: Python 3.x path (Absolute path) to be used for built-in install, default: `""`
