@@ -38,6 +38,7 @@ function convertFromWorkspaceConfigToInitializationOptions() {
       logLevel: settings.get('logLevel'),
       args: settings.get('args'),
       path: settings.get('path'),
+      interpreter: settings.get('interpreter'),
       importStrategy: settings.get('importStrategy'),
       showNotifications: settings.get('showNotifications'),
       organizeImports: settings.get('organizeImports'),
