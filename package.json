@@ -133,7 +133,7 @@
           "type": "array"
         },
         "ruff.importStrategy": {
-          "default": "useBundled",
+          "default": "fromEnvironment",
           "description": "Defines where `ruff` is imported from. This setting may be ignored if `ruff.path` is set.",
           "enum": [
             "useBundled",
