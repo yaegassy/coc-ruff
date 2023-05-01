@@ -7,6 +7,7 @@ import * as builtinInstallServerCommandFeature from './commands/builtinInstallSe
 import * as executeAutofixCommandFeature from './commands/executeAutofix';
 import * as executeOrganizeImportsCommandFeature from './commands/executeOrganizeImports';
 import * as restartCommandFeature from './commands/restart';
+import * as autoFixOnSaveFeature from './features/autoFixOnSave';
 import { getRuffLspPath } from './tool';
 
 let client: LanguageClient | undefined;
@@ -36,4 +37,5 @@ export async function activate(context: ExtensionContext): Promise<void> {
   executeAutofixCommandFeature.activate(context, client);
   executeOrganizeImportsCommandFeature.activate(context, client);
   restartCommandFeature.activate(context, client);
+  autoFixOnSaveFeature.register(client);
 }
