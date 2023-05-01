@@ -91,6 +91,11 @@
           "default": true,
           "description": "Automatically detects the ruff command in the execution environment and sets `ruff.path`."
         },
+        "ruff.autoFixOnSave": {
+          "type": "boolean",
+          "default": false,
+          "description": "Turns auto fix on save on or off."
+        },
         "ruff.serverPath": {
           "type": "string",
           "default": "",
