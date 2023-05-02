@@ -1,4 +1,4 @@
-import { commands, LanguageClient, TextEdit, workspace } from 'coc.nvim';
+import { LanguageClient, TextEdit, workspace } from 'coc.nvim';
 
 type RuffDiagnosticsDataType = {
   fix: {
@@ -16,7 +16,7 @@ export async function register(client: LanguageClient) {
   workspace.registerAutocmd({
     request: true,
     event: 'BufWritePre',
-    arglist: [`+expand('<abuf>')`],
+    pattern: '*.py',
     callback: async () => {
       const { document } = await workspace.getCurrentState();
 
@@ -39,7 +39,12 @@ export async function register(client: LanguageClient) {
       }
 
       if (existsFix) {
-        commands.executeCommand('ruff.executeAutofix');
+        // When executing `commands.executeCommand('ruff.executeAutofix')`
+        // within the "BufWritePre" event, it does not behave as expected.
+        //
+        // We have changed it to be executed from the CocAction function using
+        // "workspace.nvim.call".
+        await workspace.nvim.call('CocAction', ['runCommand', 'ruff.executeAutofix']);
       }
     },
   });
