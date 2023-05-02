@@ -8,8 +8,11 @@
   "keywords": [
     "coc.nvim",
     "python",
+    "python3",
     "linting",
     "ruff",
+    "ruff-lsp",
+    "coc-ruff",
     "vim",
     "neovim"
   ],
