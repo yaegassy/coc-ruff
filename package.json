@@ -60,6 +60,8 @@
         "filetype": "python",
         "patterns": [
           "pyproject.toml",
+          "ruff.toml",
+          ".ruff.toml",
           "setup.py",
           "setup.cfg",
           "tox.ini",
