@@ -63,6 +63,7 @@
           "setup.py",
           "setup.cfg",
           "tox.ini",
+          "Pipfile",
           "requirements.txt"
         ]
       }
