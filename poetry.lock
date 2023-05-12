@@ -118,14 +118,14 @@ files = [
 
 [[package]]
 name = "ruff-lsp"
-version = "0.0.25"
+version = "0.0.26"
 description = "A Language Server Protocol implementation for Ruff."
 category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "ruff_lsp-0.0.25-py3-none-any.whl", hash = "sha256:f061ded6cbbcd264a8edd0cc17d451ab0ff4a0b1857a8b92ec498547c89791f4"},
-    {file = "ruff_lsp-0.0.25.tar.gz", hash = "sha256:ab9a2025b8630dea9dce1d9ee4b989ed682dc3b557116468752eb6f484589ba4"},
+    {file = "ruff_lsp-0.0.26-py3-none-any.whl", hash = "sha256:deefef3e0f60062f23b3e072a82b499cb2851b431fdbd887040bbbd4ea65c270"},
+    {file = "ruff_lsp-0.0.26.tar.gz", hash = "sha256:829883488f8e1cf7446129a7e78e2b8f9754e37d63df376864feb1f6fad35a48"},
 ]
 
 [package.dependencies]
@@ -168,4 +168,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.7,<3.12"
-content-hash = "8297f8056a2688c6cdf3c815381810c5702ebe5a04704ad3802ddc0f69e8b49e"
+content-hash = "e69f37f4b3f4668203abcf7754a654184bb13b2c8c0f77789d704e85705eb545"
