@@ -20,11 +20,10 @@ export async function activate(context: ExtensionContext): Promise<void> {
     fs.mkdirSync(extensionStoragePath, { recursive: true });
   }
 
-  builtinInstallServerCommandFeature.activate(context, client);
-
   const ruffLspPath = getRuffLspPath(context);
 
   if (!ruffLspPath || !fs.existsSync(ruffLspPath)) {
+    builtinInstallServerCommandFeature.activate(context, client);
     window.showWarningMessage(
       'coc-ruff | "ruff-lsp" does not exist. please execute `:CocCommand ruff.builtin.installServer`'
     );
@@ -33,6 +32,8 @@ export async function activate(context: ExtensionContext): Promise<void> {
 
   client = createLanguageClient(ruffLspPath);
   context.subscriptions.push(services.registLanguageClient(client));
+
+  builtinInstallServerCommandFeature.activate(context, client);
 
   executeAutofixCommandFeature.activate(context, client);
   executeOrganizeImportsCommandFeature.activate(context, client);
