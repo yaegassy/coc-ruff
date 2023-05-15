@@ -96,7 +96,7 @@ Other settings have the same configuration as [ruff-vscode](https://github.com/c
     - Mac/Linux:
       - `~/.config/coc/extensions/@yaegassy/coc-ruff-data/ruff-lsp/venv/bin/ruff-lsp`
     - Windows:
-      - `~/AppData/Local/coc/extensions/@yaegassy/coc-ruff-data/ruff/venv/Scripts/ruff-lsp.exe`
+      - `~\AppData\Local\coc\extensions\@yaegassy\coc-ruff-data\ruff-lsp\venv\Scripts\ruff-lsp.exe`
 
 ## Thanks
 
