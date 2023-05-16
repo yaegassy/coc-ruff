@@ -22,7 +22,7 @@ export async function ruffLspInstall(pythonCommand: string, context: ExtensionCo
   statusItem.show();
 
   const installCmd =
-    `${pythonCommand} -m venv ${pathVenv} && ` +
+    `"${pythonCommand}" -m venv ${pathVenv} && ` +
     `${pathVenvPython} -m pip install -U pip ruff-lsp==${RUFF_LSP_VERSION}`;
 
   rimraf.sync(pathVenv);
