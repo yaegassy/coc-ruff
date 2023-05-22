@@ -1,6 +1,6 @@
 # coc-ruff
 
-[ruff-lsp](https://github.com/charliermarsh/ruff-lsp) extension for [coc.nvim](https://github.com/neoclide/coc.nvim).
+[ruff-lsp](https://github.com/astral-sh/ruff-lsp) extension for [coc.nvim](https://github.com/neoclide/coc.nvim).
 
 <img width="791" alt="coc-ruff-demo" src="https://user-images.githubusercontent.com/188642/212628682-82b1f97d-f349-427f-95a0-f53c46c9854b.png">
 
@@ -84,7 +84,7 @@ To use the built-in installation feature, execute the following command.
 - `ruff.builtin.pythonPath`: Python 3.x path (Absolute path) to be used for built-in install, default: `""`
 - `ruff.trace.server`: Traces the communication between coc.nvim and the ruff-lsp, default: `"off"`
 
-Other settings have the same configuration as [ruff-vscode](https://github.com/charliermarsh/ruff-vscode).
+Other settings have the same configuration as [ruff-vscode](https://github.com/astral-sh/ruff-vscode).
 
 ## Commands
 
@@ -101,8 +101,8 @@ Other settings have the same configuration as [ruff-vscode](https://github.com/c
 ## Thanks
 
 - [charliermarsh/ruff](https://github.com/charliermarsh/ruff)
-- [charliermarsh/ruff-lsp](https://github.com/charliermarsh/ruff-lsp)
-- [charliermarsh/ruff-vscode](https://github.com/charliermarsh/ruff-vscode)
+- [astral-sh/ruff-lsp](https://github.com/astral-sh/ruff-lsp)
+- [astral-sh/ruff-vscode](https://github.com/astral-sh/ruff-vscode)
 
 ## License
 
