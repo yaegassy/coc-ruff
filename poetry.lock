@@ -112,13 +112,13 @@ files = [
 
 [[package]]
 name = "ruff-lsp"
-version = "0.0.29"
+version = "0.0.31"
 description = "A Language Server Protocol implementation for Ruff."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "ruff_lsp-0.0.29-py3-none-any.whl", hash = "sha256:1a6f445b0a8afb8a9c013d433698979bbba709f67fcc98b9b70510a460a88d4c"},
-    {file = "ruff_lsp-0.0.29.tar.gz", hash = "sha256:607db227949dae3b11ac18a179a2d486efbfc6ade7c56fd6f6f7f7ad8c2575c2"},
+    {file = "ruff_lsp-0.0.31-py3-none-any.whl", hash = "sha256:606e465e33d8b4cabfdcaa90d17c2acb4a0f8d62594df79f29a72dbd70b7ef7d"},
+    {file = "ruff_lsp-0.0.31.tar.gz", hash = "sha256:72a907842d312bafb1f367f5d15db35beb67f7b370d104a5fb6c356414e383ef"},
 ]
 
 [package.dependencies]
@@ -128,7 +128,7 @@ ruff = ">=0.0.272"
 typing-extensions = "*"
 
 [package.extras]
-dev = ["black (==23.3.0)", "mypy (==1.3.0)", "pip-tools (>=6.13.0,<7.0.0)", "pytest (>=7.3.1,<8.0.0)", "python-lsp-jsonrpc (==1.0.0)"]
+dev = ["black (==23.3.0)", "mypy (==1.3.0)", "pip-tools (>=6.13.0,<7.0.0)", "pytest (>=7.3.1,<8.0.0)", "pytest-asyncio (==0.21.0)", "python-lsp-jsonrpc (==1.0.0)"]
 
 [[package]]
 name = "typeguard"
@@ -159,4 +159,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.7,<3.12"
-content-hash = "492456e75b025ceff615788a0fd0988f49fca2f23466430eea3cd956e0454036"
+content-hash = "d395c98816b986cf201fcf9653d85de559884cd9b40227b51ba221e841c14cf0"
