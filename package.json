@@ -192,6 +192,12 @@
           "scope": "window",
           "type": "boolean"
         },
+        "ruff.codeAction.fixViolation.enable": {
+          "default": true,
+          "description": "Whether to display Quick Fix actions to autofix violations.",
+          "scope": "window",
+          "type": "boolean"
+        },
         "ruff.trace.server": {
           "type": "string",
           "enum": [

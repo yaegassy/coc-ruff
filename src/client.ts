@@ -31,6 +31,11 @@ type RuffLspInitializationOptions = {
     interpreter: string[];
     organizeImports: boolean;
     fixAll: boolean;
+    codeAction: {
+      fixViolation: {
+        enable: boolean;
+      };
+    };
   };
 };
 
@@ -47,6 +52,11 @@ function convertFromWorkspaceConfigToInitializationOptions() {
       run: settings.get<Run>(`run`) ?? 'onType',
       organizeImports: settings.get('organizeImports'),
       fixAll: settings.get('fixAll'),
+      codeAction: {
+        fixViolation: {
+          enable: settings.get('codeAction.fixViolation.enable'),
+        },
+      },
     },
   };
 
