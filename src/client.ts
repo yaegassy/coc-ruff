@@ -17,12 +17,15 @@ export function createLanguageClient(command: string) {
   return client;
 }
 
+type Run = 'onType' | 'onSave';
+
 type RuffLspInitializationOptions = {
   settings: {
     logLevel: string;
     args: string[];
     path: string[];
     importStrategy: string;
+    run: Run;
     interpreter: string[];
     showNotifications: string;
     organizeImports: boolean;
@@ -40,6 +43,7 @@ function convertFromWorkspaceConfigToInitializationOptions() {
       path: settings.get('path'),
       interpreter: settings.get('interpreter'),
       importStrategy: settings.get('importStrategy'),
+      run: settings.get<Run>(`run`) ?? 'onType',
       showNotifications: settings.get('showNotifications'),
       organizeImports: settings.get('organizeImports'),
       fixAll: settings.get('fixAll'),
