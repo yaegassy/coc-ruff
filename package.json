@@ -127,7 +127,7 @@
         },
         "ruff.args": {
           "default": [],
-          "description": "Arguments passed in. Each argument is a separate item in the array.",
+          "description": "Additional command-line arguments to pass to `ruff`, e.g., `\"args\": [\"--config=/path/to/pyproject.toml\"]`. Supports a subset of Ruff's command-line arguments, ignoring those that are required to operate the LSP, like `--force-exclude` and `--verbose`.",
           "items": {
             "type": "string"
           },
