@@ -29,7 +29,6 @@ type RuffLspInitializationOptions = {
     importStrategy: ImportStrategy;
     run: Run;
     interpreter: string[];
-    showNotifications: string;
     organizeImports: boolean;
     fixAll: boolean;
   };
@@ -46,7 +45,6 @@ function convertFromWorkspaceConfigToInitializationOptions() {
       interpreter: settings.get('interpreter'),
       importStrategy: settings.get<ImportStrategy>(`importStrategy`) ?? 'fromEnvironment',
       run: settings.get<Run>(`run`) ?? 'onType',
-      showNotifications: settings.get('showNotifications'),
       organizeImports: settings.get('organizeImports'),
       fixAll: settings.get('fixAll'),
     },
