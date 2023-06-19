@@ -17,6 +17,8 @@ export function createLanguageClient(command: string) {
   return client;
 }
 
+type ImportStrategy = 'fromEnvironment' | 'useBundled';
+
 type Run = 'onType' | 'onSave';
 
 type RuffLspInitializationOptions = {
@@ -24,7 +26,7 @@ type RuffLspInitializationOptions = {
     logLevel: string;
     args: string[];
     path: string[];
-    importStrategy: string;
+    importStrategy: ImportStrategy;
     run: Run;
     interpreter: string[];
     showNotifications: string;
@@ -42,7 +44,7 @@ function convertFromWorkspaceConfigToInitializationOptions() {
       args: settings.get('args'),
       path: settings.get('path'),
       interpreter: settings.get('interpreter'),
-      importStrategy: settings.get('importStrategy'),
+      importStrategy: settings.get<ImportStrategy>(`importStrategy`) ?? 'fromEnvironment',
       run: settings.get<Run>(`run`) ?? 'onType',
       showNotifications: settings.get('showNotifications'),
       organizeImports: settings.get('organizeImports'),
