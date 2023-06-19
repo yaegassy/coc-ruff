@@ -198,6 +198,12 @@
           "scope": "window",
           "type": "boolean"
         },
+        "ruff.codeAction.disableRuleComment.enable": {
+          "default": true,
+          "description": "Whether to display Quick Fix actions to disable rules via `noqa` suppression comments.",
+          "scope": "window",
+          "type": "boolean"
+        },
         "ruff.trace.server": {
           "type": "string",
           "enum": [

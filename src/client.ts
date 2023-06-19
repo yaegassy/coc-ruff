@@ -35,6 +35,9 @@ type RuffLspInitializationOptions = {
       fixViolation: {
         enable: boolean;
       };
+      disableRuleComment: {
+        enable: boolean;
+      };
     };
   };
 };
@@ -55,6 +58,9 @@ function convertFromWorkspaceConfigToInitializationOptions() {
       codeAction: {
         fixViolation: {
           enable: settings.get('codeAction.fixViolation.enable'),
+        },
+        disableRuleComment: {
+          enable: settings.get('codeAction.disableRuleComment.enable'),
         },
       },
     },
