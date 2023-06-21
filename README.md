@@ -91,6 +91,7 @@ Other settings have the same configuration as [ruff-vscode](https://github.com/a
 
 - `ruff.executeAutofix`: Fix all auto-fixable problems
 - `ruff.executeOrganizeImports`: Format imports
+- `ruff.showOutput`: Show ruff output channel
 - `ruff.restart`: Restart Server
 - `ruff.builtin.installServer`: Install ruff-lsp
   - It will be installed in this path:

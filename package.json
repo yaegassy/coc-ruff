@@ -231,6 +231,10 @@
         "title": "Format imports"
       },
       {
+        "command": "ruff.showOutput",
+        "title": "Show ruff output channel"
+      },
+      {
         "command": "ruff.restart",
         "title": "Restart Server"
       },
