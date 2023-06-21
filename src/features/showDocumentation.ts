@@ -5,8 +5,8 @@ import {
   Diagnostic,
   DocumentSelector,
   ExtensionContext,
+  LanguageClient,
   languages,
-  OutputChannel,
   Range,
   TextDocument,
   workspace,
@@ -25,24 +25,24 @@ type RuffRuleContents = {
   href: string;
 };
 
-export function activate(context: ExtensionContext, outputChannel: OutputChannel) {
+export async function register(context: ExtensionContext, client: LanguageClient) {
+  await client.onReady();
+
+  if (!workspace.getConfiguration('ruff').get<boolean>('client.codeAction.showDocumantaion.enable', false)) return;
+
   const documentSelector: DocumentSelector = [{ scheme: 'file', language: 'python' }];
 
   context.subscriptions.push(
-    languages.registerCodeActionProvider(
-      documentSelector,
-      new ShowWebDocumentationCodeActionProvider(outputChannel),
-      'ruff'
-    )
+    languages.registerCodeActionProvider(documentSelector, new ShowDocumentationCodeActionProvider(client), 'ruff')
   );
 }
 
-class ShowWebDocumentationCodeActionProvider implements CodeActionProvider {
+class ShowDocumentationCodeActionProvider implements CodeActionProvider {
   private readonly source = 'Ruff';
-  private outputChannel: OutputChannel;
+  private client: LanguageClient;
 
-  constructor(outputChannel: OutputChannel) {
-    this.outputChannel = outputChannel;
+  constructor(client: LanguageClient) {
+    this.client = client;
   }
 
   public async provideCodeActions(document: TextDocument, range: Range, context: CodeActionContext) {
@@ -83,7 +83,7 @@ class ShowWebDocumentationCodeActionProvider implements CodeActionProvider {
 
         if (ruffRuleContents) {
           ruffRuleContents.forEach((r) => {
-            const title = `Show web documentation for ${r.id} [coc-ruff]`;
+            const title = `Ruff (${r.id}): Show documentation [coc-ruff]`;
 
             const command = {
               title: '',

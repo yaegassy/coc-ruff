@@ -80,6 +80,7 @@ To use the built-in installation feature, execute the following command.
 - `ruff.disableHover`: Disable hover only, default: `false`
 - `ruff.useDetectRuffCommand`: Automatically detects the ruff command in the execution environment and sets `ruff.path`, default: `true`
 - `ruff.autoFixOnSave`: Turns auto fix on save on or off, default: `false`
+- `ruff.client.codeAction.showDocumantaion.enable`: Whether to display the code action for open the Ruff rule documentation web page included in the diagnostic information, default: `false`
 - `ruff.serverPath`: Custom path to the `ruff-lsp` command. If not set, the `ruff-lsp` command found in the current Python environment or in the venv environment created for the extension will be used, default: `""`
 - `ruff.builtin.pythonPath`: Python 3.x path (Absolute path) to be used for built-in install, default: `""`
 - `ruff.trace.server`: Traces the communication between coc.nvim and the ruff-lsp, default: `"off"`
