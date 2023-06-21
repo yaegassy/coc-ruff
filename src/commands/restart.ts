@@ -1,6 +1,6 @@
 import { commands, ExtensionContext, LanguageClient, ServiceStat } from 'coc.nvim';
 
-export function activate(context: ExtensionContext, client: LanguageClient) {
+export function register(context: ExtensionContext, client: LanguageClient) {
   context.subscriptions.push(
     commands.registerCommand('ruff.restart', async () => {
       if (client) {

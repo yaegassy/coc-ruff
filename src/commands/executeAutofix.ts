@@ -1,7 +1,7 @@
 import { commands, ExtensionContext, LanguageClient, window } from 'coc.nvim';
 import { ExecuteCommandRequestType } from '../requestTypes';
 
-export async function activate(context: ExtensionContext, client: LanguageClient) {
+export async function register(context: ExtensionContext, client: LanguageClient) {
   await client.onReady();
 
   context.subscriptions.push(

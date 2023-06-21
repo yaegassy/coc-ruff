@@ -4,7 +4,7 @@ import { createLanguageClient } from '../client';
 import { installWrapper } from '../installer';
 import { getPythonPath, getRuffLspPath } from '../tool';
 
-export function activate(context: ExtensionContext, client?: LanguageClient) {
+export function register(context: ExtensionContext, client?: LanguageClient) {
   context.subscriptions.push(
     commands.registerCommand('ruff.builtin.installServer', async () => {
       const pythonCommand = getPythonPath();
