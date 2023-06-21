@@ -92,6 +92,11 @@
           "default": false,
           "description": "Disable hover only."
         },
+        "ruff.client.codeAction.showDocumantaion.enable": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether to display the code action for open the Ruff rule documentation web page included in the diagnostic information."
+        },
         "ruff.useDetectRuffCommand": {
           "type": "boolean",
           "default": true,
