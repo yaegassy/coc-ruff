@@ -102,7 +102,7 @@ Other settings have the same configuration as [ruff-vscode](https://github.com/a
 
 ## Thanks
 
-- [charliermarsh/ruff](https://github.com/charliermarsh/ruff)
+- [astral-sh/ruff](https://github.com/astral-sh/ruff)
 - [astral-sh/ruff-lsp](https://github.com/astral-sh/ruff-lsp)
 - [astral-sh/ruff-vscode](https://github.com/astral-sh/ruff-vscode)
 
