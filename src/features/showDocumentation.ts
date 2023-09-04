@@ -33,7 +33,7 @@ export async function register(context: ExtensionContext, client: LanguageClient
   const documentSelector: DocumentSelector = [{ scheme: 'file', language: 'python' }];
 
   context.subscriptions.push(
-    languages.registerCodeActionProvider(documentSelector, new ShowDocumentationCodeActionProvider(client), 'ruff')
+    languages.registerCodeActionProvider(documentSelector, new ShowDocumentationCodeActionProvider(client), 'ruff'),
   );
 }
 

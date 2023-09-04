@@ -26,9 +26,9 @@ export async function register(context: ExtensionContext, client: LanguageClient
 
       await client.sendRequest(ExecuteCommandRequestType, params).then(undefined, async () => {
         await window.showErrorMessage(
-          'Failed to apply Ruff fixes to the document. Please consider opening an issue with steps to reproduce.'
+          'Failed to apply Ruff fixes to the document. Please consider opening an issue with steps to reproduce.',
         );
       });
-    })
+    }),
   );
 }

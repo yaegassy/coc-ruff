@@ -8,6 +8,6 @@ export async function register(context: ExtensionContext, client: LanguageClient
       if (client.outputChannel) {
         client.outputChannel.show();
       }
-    })
+    }),
   );
 }

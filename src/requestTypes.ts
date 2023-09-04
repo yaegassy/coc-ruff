@@ -6,5 +6,5 @@ interface ExecuteCommandRequestParams {
 }
 
 export const ExecuteCommandRequestType = new lc.RequestType<ExecuteCommandRequestParams, any, never>(
-  'workspace/executeCommand'
+  'workspace/executeCommand',
 );

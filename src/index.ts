@@ -27,7 +27,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
   if (!ruffLspPath || !fs.existsSync(ruffLspPath)) {
     builtinInstallServerCommandFeature.register(context, client);
     window.showWarningMessage(
-      'coc-ruff | "ruff-lsp" does not exist. please execute `:CocCommand ruff.builtin.installServer`'
+      'coc-ruff | "ruff-lsp" does not exist. please execute `:CocCommand ruff.builtin.installServer`',
     );
     return;
   }

@@ -9,6 +9,6 @@ export function register(context: ExtensionContext, client: LanguageClient) {
         }
       }
       client.start();
-    })
+    }),
   );
 }

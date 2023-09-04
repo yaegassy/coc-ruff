@@ -23,6 +23,6 @@ export function register(context: ExtensionContext, client?: LanguageClient) {
       } else {
         client.start();
       }
-    })
+    }),
   );
 }
