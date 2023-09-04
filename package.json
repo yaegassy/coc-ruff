@@ -82,11 +82,6 @@
           "default": true,
           "description": "Enable coc-ruff extension"
         },
-        "ruff.disableDocumentFormatting": {
-          "type": "boolean",
-          "default": true,
-          "description": "Disable document formatting only."
-        },
         "ruff.disableHover": {
           "type": "boolean",
           "default": false,
@@ -207,6 +202,12 @@
           "default": true,
           "description": "Whether to display Quick Fix actions to disable rules via `noqa` suppression comments.",
           "scope": "window",
+          "type": "boolean"
+        },
+        "ruff.enableExperimentalFormatter": {
+          "default": false,
+          "markdownDescription": "Controls whether Ruff registers as capable of code formatting.",
+          "scope": "machine",
           "type": "boolean"
         },
         "ruff.trace.server": {

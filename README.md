@@ -40,6 +40,26 @@ If you do not need this feature, set `ruff.useDetectRuffCommand` to `false`.
 }
 ```
 
+### Format (DocumentFormatting)
+
+The [black](https://github.com/psf/black) equivalent formatting feature has been added to `ruff`. To enable this feature in `coc-ruff`, please follow the steps below:
+
+1. Please set `ruff.enableExperimentalFormatter` to `true`.
+1. If you are using other Python-related coc-extensions alongside` coc-ruff`, please disable the formatting feature of those coc-extensions.
+   - e.g. `coc-pyright`: 
+     - Please set `python.formatting.provider` to `none`.
+
+---
+
+**coc-settings.json**:
+
+```jsonc
+{
+  "ruff.enableExperimentalFormatter": true,
+  "python.formatting.provider": "none"
+}
+```
+
 ### Auto-fixing
 
 Auto-fixing can be executed via the `ruff.executeAutofix` command or CodeAction.

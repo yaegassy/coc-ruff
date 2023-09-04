@@ -3,9 +3,17 @@ import { LanguageClient, LanguageClientOptions, ServerOptions, workspace } from 
 import which from 'which';
 
 export function createLanguageClient(command: string) {
+  const settings = workspace.getConfiguration('ruff');
+  const newEnv = { ...process.env };
+
   const serverOptions: ServerOptions = {
     command,
+    options: { env: newEnv },
   };
+
+  if (settings.enableExperimentalFormatter) {
+    newEnv.RUFF_EXPERIMENTAL_FORMATTER = '1';
+  }
 
   const clientOptions: LanguageClientOptions = {
     documentSelector: ['python'],
@@ -39,6 +47,7 @@ type RuffLspInitializationOptions = {
         enable: boolean;
       };
     };
+    enableExperimentalFormatter: boolean;
   };
 };
 
@@ -63,6 +72,7 @@ function convertFromWorkspaceConfigToInitializationOptions() {
           enable: settings.get('codeAction.disableRuleComment.enable'),
         },
       },
+      enableExperimentalFormatter: settings.get('enableExperimentalFormatter'),
     },
   };
 
@@ -85,14 +95,9 @@ function getInitializationOptions() {
 
 function getLanguageClientDisabledFeatures() {
   const r: string[] = [];
-  if (getConfigDisableDocumentFormatting()) r.push('documentFormatting');
   if (getConfigDisableHover()) r.push('hover');
 
   return r;
-}
-
-function getConfigDisableDocumentFormatting() {
-  return workspace.getConfiguration('ruff').get<boolean>('disableDocumentFormatting', true);
 }
 
 function getConfigDisableHover() {
