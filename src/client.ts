@@ -48,6 +48,7 @@ type RuffLspInitializationOptions = {
       };
     };
     enableExperimentalFormatter: boolean;
+    showNotifications: string;
   };
 };
 
@@ -72,6 +73,7 @@ function convertFromWorkspaceConfigToInitializationOptions() {
           enable: settings.get('codeAction.disableRuleComment.enable'),
         },
       },
+      showNotifications: settings.get<string>('showNotifications') ?? 'off',
       enableExperimentalFormatter: settings.get('enableExperimentalFormatter'),
     },
   };
