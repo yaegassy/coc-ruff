@@ -112,19 +112,6 @@
           "default": "",
           "description": "Python 3.x path (Absolute path) to be used for built-in install."
         },
-        "ruff.logLevel": {
-          "default": "error",
-          "description": "The log level the extension logs at, defaults to 'error'",
-          "enum": [
-            "debug",
-            "error",
-            "info",
-            "off",
-            "warn"
-          ],
-          "scope": "window",
-          "type": "string"
-        },
         "ruff.args": {
           "default": [],
           "description": "Additional command-line arguments to pass to `ruff check`, e.g., `\"args\": [\"--config=/path/to/pyproject.toml\"]`. Supports a subset of Ruff's command-line arguments, ignoring those that are required to operate the LSP, like `--force-exclude` and `--verbose`.",

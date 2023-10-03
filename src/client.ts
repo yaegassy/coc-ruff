@@ -31,7 +31,6 @@ type Run = 'onType' | 'onSave';
 
 type RuffLspInitializationOptions = {
   settings: {
-    logLevel: string;
     args: string[];
     path: string[];
     importStrategy: ImportStrategy;
@@ -57,7 +56,6 @@ function convertFromWorkspaceConfigToInitializationOptions() {
 
   const initializationOptions = <RuffLspInitializationOptions>{
     settings: {
-      logLevel: settings.get('logLevel'),
       args: settings.get('args'),
       path: settings.get('path'),
       interpreter: settings.get('interpreter'),
