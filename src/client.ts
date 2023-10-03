@@ -29,25 +29,38 @@ type ImportStrategy = 'fromEnvironment' | 'useBundled';
 
 type Run = 'onType' | 'onSave';
 
+type CodeAction = {
+  disableRuleComment?: {
+    enable?: boolean;
+  };
+  fixViolation?: {
+    enable?: boolean;
+  };
+};
+
+type Lint = {
+  args?: string[];
+  run?: Run;
+};
+
+type Format = {
+  args?: string[];
+};
+
 type RuffLspInitializationOptions = {
   settings: {
     args: string[];
     path: string[];
-    importStrategy: ImportStrategy;
     run: Run;
     interpreter: string[];
-    organizeImports: boolean;
-    fixAll: boolean;
-    codeAction: {
-      fixViolation: {
-        enable: boolean;
-      };
-      disableRuleComment: {
-        enable: boolean;
-      };
-    };
+    importStrategy: ImportStrategy;
+    codeAction: CodeAction;
     enableExperimentalFormatter: boolean;
     showNotifications: string;
+    organizeImports: boolean;
+    fixAll: boolean;
+    lint: Lint;
+    format: Format;
   };
 };
 
@@ -56,13 +69,13 @@ function convertFromWorkspaceConfigToInitializationOptions() {
 
   const initializationOptions = <RuffLspInitializationOptions>{
     settings: {
-      args: settings.get('args'),
-      path: settings.get('path'),
+      args: settings.get<string[]>('args'),
+      path: settings.get<string[]>('path'),
       interpreter: settings.get('interpreter'),
       importStrategy: settings.get<ImportStrategy>(`importStrategy`) ?? 'fromEnvironment',
       run: settings.get<Run>(`run`) ?? 'onType',
-      organizeImports: settings.get('organizeImports'),
-      fixAll: settings.get('fixAll'),
+      organizeImports: settings.get<boolean>('organizeImports') ?? true,
+      fixAll: settings.get<boolean>('fixAll') ?? true,
       codeAction: {
         fixViolation: {
           enable: settings.get('codeAction.fixViolation.enable'),
@@ -71,12 +84,44 @@ function convertFromWorkspaceConfigToInitializationOptions() {
           enable: settings.get('codeAction.disableRuleComment.enable'),
         },
       },
+      lint: {
+        run: getLintRunSetting(),
+        args: getLintArgsSetting(),
+      },
+      format: {
+        args: settings.get<string[]>('format.args'),
+      },
       showNotifications: settings.get<string>('showNotifications') ?? 'off',
-      enableExperimentalFormatter: settings.get('enableExperimentalFormatter'),
+      enableExperimentalFormatter: settings.get<boolean>('enableExperimentalFormatter') ?? false,
     },
   };
 
   return initializationOptions;
+}
+
+// MEMO: Temporary compatibility support for old and new settings
+function getLintArgsSetting() {
+  const settings = workspace.getConfiguration('ruff');
+
+  if (settings.get<string[]>('lint.args', []).length > 0) {
+    return settings.get<string[]>('lint.args', []);
+  } else if (settings.get<string[]>('args', []).length > 0) {
+    return settings.get<string[]>('args', []);
+  }
+
+  return [];
+}
+
+// MEMO: Temporary compatibility support for old and new settings
+function getLintRunSetting(): Run {
+  const settings = workspace.getConfiguration('ruff');
+  const defaultValue = 'onType';
+
+  if (settings.get<Run | null>('run') != null) {
+    return settings.get<Run>('run', defaultValue);
+  }
+
+  return settings.get<Run>('lint.run', defaultValue);
 }
 
 function getInitializationOptions() {
