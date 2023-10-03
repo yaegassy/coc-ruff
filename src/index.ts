@@ -5,6 +5,7 @@ import fs from 'fs';
 import { createLanguageClient } from './client';
 import * as builtinInstallServerCommandFeature from './commands/builtinInstallServer';
 import * as executeAutofixCommandFeature from './commands/executeAutofix';
+import * as executeFormatCommandFeature from './commands/executeFormat';
 import * as executeOrganizeImportsCommandFeature from './commands/executeOrganizeImports';
 import * as restartCommandFeature from './commands/restart';
 import * as showOutputCommandFeature from './commands/showOutput';
@@ -39,6 +40,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
   showOutputCommandFeature.register(context, client);
   executeAutofixCommandFeature.register(context, client);
   executeOrganizeImportsCommandFeature.register(context, client);
+  executeFormatCommandFeature.register(context, client);
   restartCommandFeature.register(context, client);
   autoFixOnSaveFeature.register(client);
   showDocumentationCodeActionFeature.register(context, client);
