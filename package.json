@@ -127,35 +127,12 @@
         },
         "ruff.args": {
           "default": [],
-          "description": "Additional command-line arguments to pass to `ruff`, e.g., `\"args\": [\"--config=/path/to/pyproject.toml\"]`. Supports a subset of Ruff's command-line arguments, ignoring those that are required to operate the LSP, like `--force-exclude` and `--verbose`.",
+          "description": "Additional command-line arguments to pass to `ruff check`, e.g., `\"args\": [\"--config=/path/to/pyproject.toml\"]`. Supports a subset of Ruff's command-line arguments, ignoring those that are required to operate the LSP, like `--force-exclude` and `--verbose`.",
           "items": {
             "type": "string"
           },
           "scope": "resource",
           "type": "array"
-        },
-        "ruff.path": {
-          "default": [],
-          "description": "When set to a path to the `ruff` binary, extension will use that.",
-          "scope": "resource",
-          "items": {
-            "type": "string"
-          },
-          "type": "array"
-        },
-        "ruff.importStrategy": {
-          "default": "fromEnvironment",
-          "description": "Defines where `ruff` is imported from. This setting may be ignored if `ruff.path` is set.",
-          "enum": [
-            "useBundled",
-            "fromEnvironment"
-          ],
-          "enumDescriptions": [
-            "Always use the bundled version of `ruff`.",
-            "Use `ruff` from environment, fallback to bundled version only if `ruff` not available in the environment."
-          ],
-          "scope": "window",
-          "type": "string"
         },
         "ruff.run": {
           "default": "onType",
@@ -167,6 +144,29 @@
           "enumDescriptions": [
             "Run Ruff on every keystroke.",
             "Run Ruff on save."
+          ],
+          "scope": "window",
+          "type": "string"
+        },
+        "ruff.path": {
+          "default": [],
+          "description": "Path to a custom `ruff` executable, e.g., `[\"/path/to/ruff\"]`.",
+          "scope": "resource",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "ruff.importStrategy": {
+          "default": "fromEnvironment",
+          "description": "Strategy for loading the `ruff` executable. `fromEnvironment` picks up Ruff from the environment, falling back to the bundled version if needed. `useBundled` uses the version bundled with the extension.",
+          "enum": [
+            "fromEnvironment",
+            "useBundled"
+          ],
+          "enumDescriptions": [
+            "Use `ruff` from environment, fallback to bundled version only if `ruff` not available in the environment.",
+            "Always use the bundled version of `ruff`."
           ],
           "scope": "window",
           "type": "string"
@@ -203,6 +203,24 @@
           "description": "Whether to display Quick Fix actions to disable rules via `noqa` suppression comments.",
           "scope": "window",
           "type": "boolean"
+        },
+        "ruff.showNotifications": {
+          "default": "off",
+          "markdownDescription": "Controls when notifications are shown by this extension.",
+          "enum": [
+            "off",
+            "onError",
+            "onWarning",
+            "always"
+          ],
+          "enumDescriptions": [
+            "All notifications are turned off, any errors or warning are still available in the logs.",
+            "Notifications are shown only in the case of an error.",
+            "Notifications are shown for errors and warnings.",
+            "Notifications are show for anything that the server chooses to show."
+          ],
+          "scope": "machine",
+          "type": "string"
         },
         "ruff.enableExperimentalFormatter": {
           "default": false,
