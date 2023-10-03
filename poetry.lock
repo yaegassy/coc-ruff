@@ -64,6 +64,17 @@ attrs = "*"
 cattrs = "*"
 
 [[package]]
+name = "packaging"
+version = "23.2"
+description = "Core utilities for Python packages"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "packaging-23.2-py3-none-any.whl", hash = "sha256:8c491190033a9af7e1d931d0b5dacc2ef47509b34dd0de67ed209b5203fc88c7"},
+    {file = "packaging-23.2.tar.gz", hash = "sha256:048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"},
+]
+
+[[package]]
 name = "pygls"
 version = "1.0.1"
 description = "a pythonic generic language server (pronounced like \"pie glass\")."
@@ -112,17 +123,18 @@ files = [
 
 [[package]]
 name = "ruff-lsp"
-version = "0.0.39"
+version = "0.0.40"
 description = "A Language Server Protocol implementation for Ruff."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "ruff_lsp-0.0.39-py3-none-any.whl", hash = "sha256:60f7dbe1c34e3ed9729d72bc42c0b6227d45a9808977f511fa29af8820984817"},
-    {file = "ruff_lsp-0.0.39.tar.gz", hash = "sha256:faab8b836040df6ded8b1e3eca11a11ab7b7108b14e2f5d5deff8cc131676881"},
+    {file = "ruff_lsp-0.0.40-py3-none-any.whl", hash = "sha256:8be548244252cef9ad5f6379fbe944d78ba24c09de28c390220d4a98168a6908"},
+    {file = "ruff_lsp-0.0.40.tar.gz", hash = "sha256:15e7b4a500a11cca34040348a689830ea5739dc2edb0ad51a05deec293bfacf7"},
 ]
 
 [package.dependencies]
 lsprotocol = ">=2023.0.0a1"
+packaging = ">=23.1"
 pygls = ">=1.0.1"
 ruff = ">=0.0.274"
 typing-extensions = "*"
@@ -159,4 +171,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.7,<3.12"
-content-hash = "f1e164fbdf4a09f7b476ee09ec5613bf6578aebe8d1032e56c282d755c7922e3"
+content-hash = "ac928e2096fe3dd18ab135dd1338c60afa1b3a9107afa122dfad6a6751c80a3f"
