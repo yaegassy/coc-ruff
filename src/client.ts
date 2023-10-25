@@ -11,6 +11,7 @@ export function createLanguageClient(command: string) {
     options: { env: newEnv },
   };
 
+  // MEMO: Used in ruff-lsp v0.0.41 and earlier. This item will be removed in the future
   if (settings.enableExperimentalFormatter) {
     newEnv.RUFF_EXPERIMENTAL_FORMATTER = '1';
   }
@@ -92,6 +93,7 @@ function convertFromWorkspaceConfigToInitializationOptions() {
         args: settings.get<string[]>('format.args'),
       },
       showNotifications: settings.get<string>('showNotifications') ?? 'off',
+      // MEMO: Used in ruff-lsp v0.0.41 and earlier. This item will be removed in the future
       enableExperimentalFormatter: settings.get<boolean>('enableExperimentalFormatter') ?? false,
     },
   };
