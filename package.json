@@ -82,6 +82,11 @@
           "default": true,
           "description": "Enable coc-ruff extension"
         },
+        "ruff.disableDocumentFormatting": {
+          "type": "boolean",
+          "default": false,
+          "description": "Disable document formatting only."
+        },
         "ruff.disableHover": {
           "type": "boolean",
           "default": false,

@@ -42,14 +42,26 @@ If you do not need this feature, set `ruff.useDetectRuffCommand` to `false`.
 
 ### Format (DocumentFormatting)
 
-The [black](https://github.com/psf/black) equivalent formatting feature has been added to `ruff`. To enable this feature in `coc-ruff`, please follow the steps below:
+The [black](https://github.com/psf/black) equivalent formatting feature has been added to `ruff`. This feature is enabled by default in `ruff-lsp` "v0.0.42" and later.
+
+If you want to disable this feature, set the `ruff.disableDocumentFormatting` setting to `true`.
+
+**coc-settings.json**:
+
+```jsonc
+{
+  "ruff.disableDocumentFormatting": true
+}
+```
+
+---
+
+If you are using `ruff-lsp` "v0.4.1" or earlier and want to use this feature, please follow these steps.
 
 1. Please set `ruff.enableExperimentalFormatter` to `true`.
 1. If you are using other Python-related coc-extensions alongside` coc-ruff`, please disable the formatting feature of those coc-extensions.
    - e.g. `coc-pyright`: 
      - Please set `python.formatting.provider` to `none`.
-
----
 
 **coc-settings.json**:
 
@@ -97,6 +109,7 @@ To use the built-in installation feature, execute the following command.
 ## Configuration options
 
 - `ruff.enable`: Enable coc-ruff extension, default: `true`
+- `ruff.disableDocumentFormatting`: Disable document formatting only, default: `false`
 - `ruff.disableHover`: Disable hover only, default: `false`
 - `ruff.useDetectRuffCommand`: Automatically detects the ruff command in the execution environment and sets `ruff.path`, default: `true`
 - `ruff.autoFixOnSave`: Turns auto fix on save on or off, default: `false`
