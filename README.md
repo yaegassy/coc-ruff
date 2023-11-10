@@ -124,7 +124,6 @@ Other settings have the same configuration as [ruff-vscode](https://github.com/a
 
 - `ruff.executeAutofix`: Fix all auto-fixable problems
 - `ruff.executeFormat`: Format document
-  - To use this command, set `ruff.enableExperimentalFormatter` to `true`.
 - `ruff.executeOrganizeImports`: Format imports
 - `ruff.showOutput`: Show ruff output channel
 - `ruff.restart`: Restart Server
