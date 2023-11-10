@@ -138,13 +138,13 @@ files = [
 
 [[package]]
 name = "ruff-lsp"
-version = "0.0.43"
+version = "0.0.44"
 description = "A Language Server Protocol implementation for Ruff."
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "ruff_lsp-0.0.43-py3-none-any.whl", hash = "sha256:c6dbf8f4e422e202b92d7a680b25fb34da7b2b31bfcac0247a6da71d7a68863d"},
-    {file = "ruff_lsp-0.0.43.tar.gz", hash = "sha256:5b495c8282955a783200d36c1ae2dce2fa6b4f0df110ec7e6eba07d13bc8681d"},
+    {file = "ruff_lsp-0.0.44-py3-none-any.whl", hash = "sha256:8597ac4c16bfd56423d798dd37c48425462baf46624e007c56d789f8c60d420e"},
+    {file = "ruff_lsp-0.0.44.tar.gz", hash = "sha256:a8754e8d4b21a2cd9fb7b2703419c1306c8b6f0fa4de10b999e06bab3c0b6d2c"},
 ]
 
 [package.dependencies]
@@ -205,4 +205,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8,<3.12"
-content-hash = "0c80c3807c9ad8c259e62a916a995365d13369c5fe158deacf00eccb37e03208"
+content-hash = "736fc9afd4fe18ad1f6f3228cd448397763dbfa596532045b03e9f7e8c9cbf08"
