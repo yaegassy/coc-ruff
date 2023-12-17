@@ -5,8 +5,8 @@ description = ""
 authors = ["yaegassy <yosstools@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.12"
-ruff-lsp = "0.0.47"
+python = ">=3.8,<3.13"
+ruff-lsp = "0.0.48"
 
 
 [build-system]
