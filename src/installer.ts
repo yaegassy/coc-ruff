@@ -2,7 +2,7 @@ import { ExtensionContext, window } from 'coc.nvim';
 
 import child_process from 'child_process';
 import path from 'path';
-import rimraf from 'rimraf';
+import { rimrafSync } from 'rimraf';
 import util from 'util';
 
 import { RUFF_LSP_VERSION } from './constant';
@@ -25,7 +25,7 @@ export async function ruffLspInstall(pythonCommand: string, context: ExtensionCo
     `"${pythonCommand}" -m venv ${pathVenv} && ` +
     `${pathVenvPython} -m pip install -U pip ruff-lsp==${RUFF_LSP_VERSION}`;
 
-  rimraf.sync(pathVenv);
+  rimrafSync(pathVenv);
   try {
     window.showInformationMessage(`Installing ruff-lsp in progress...`);
     await exec(installCmd);
