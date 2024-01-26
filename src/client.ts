@@ -53,6 +53,7 @@ type RuffLspInitializationOptions = {
     args: string[];
     path: string[];
     run: Run;
+    ignoreStandardLibrary: boolean;
     interpreter: string[];
     importStrategy: ImportStrategy;
     codeAction: CodeAction;
@@ -72,6 +73,7 @@ function convertFromWorkspaceConfigToInitializationOptions() {
     settings: {
       args: settings.get<string[]>('args'),
       path: settings.get<string[]>('path'),
+      ignoreStandardLibrary: settings.get<boolean>('ignoreStandardLibrary') ?? true,
       interpreter: settings.get('interpreter'),
       importStrategy: settings.get<ImportStrategy>(`importStrategy`) ?? 'fromEnvironment',
       run: settings.get<Run>(`run`) ?? 'onType',
