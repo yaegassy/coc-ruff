@@ -40,6 +40,7 @@ type CodeAction = {
 };
 
 type Lint = {
+  enable?: boolean;
   args?: string[];
   run?: Run;
 };
@@ -88,6 +89,7 @@ function convertFromWorkspaceConfigToInitializationOptions() {
         },
       },
       lint: {
+        enable: settings.get<boolean>('lint.enable') ?? true,
         run: getLintRunSetting(),
         args: getLintArgsSetting(),
       },
