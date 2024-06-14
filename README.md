@@ -40,6 +40,24 @@ If you do not need this feature, set `ruff.useDetectRuffCommand` to `false`.
 }
 ```
 
+## [EXPERIMENTAL] Enabling the Rust-based language server
+
+To use the new Rust-based language server (ruff server), you'll need to enable the `ruff.nativeServer` setting in the coc-settings.json:
+
+```jsonc
+{
+  "ruff.nativeServer": true
+}
+```
+
+In coc-ruff, the ruff binary is detected from the runtime environment (PATH) by default to start the native server. If you want to specify a custom ruff binary path, please set ruff.nativeBinaryPath.
+
+```jsonc
+{
+  "ruff.nativeBinaryPath": "/path/to/ruff"
+}
+```
+
 ### Format (DocumentFormatting)
 
 The [black](https://github.com/psf/black) equivalent formatting feature has been added to `ruff`. This feature is enabled by default in `ruff-lsp` "v0.0.42" and later.
@@ -109,6 +127,8 @@ To use the built-in installation feature, execute the following command.
 ## Configuration options
 
 - `ruff.enable`: Enable coc-ruff extension, default: `true`
+- `ruff.nativeServer`: Use the integrated Rust-based language server, available now in Beta, default: `false`
+- `ruff.nativeBinaryPath`: Custom path for the `ruff` binary when using the native server. If no value is set, the `ruff` command will be detected from the runtime environment, default: `false`
 - `ruff.disableDocumentFormatting`: Disable document formatting only, default: `false`
 - `ruff.disableHover`: Disable hover only, default: `false`
 - `ruff.useDetectRuffCommand`: Automatically detects the ruff command in the execution environment and sets `ruff.path`, default: `true`

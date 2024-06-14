@@ -40,6 +40,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.11.17",
+    "@types/semver": "^7.5.8",
     "@types/which": "^2.0.1",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
@@ -105,6 +106,16 @@
           "type": "boolean",
           "default": false,
           "description": "Turns auto fix on save on or off."
+        },
+        "ruff.nativeServer": {
+          "default": false,
+          "description": "Use the integrated Rust-based language server, available now in Beta.",
+          "type": "boolean"
+        },
+        "ruff.nativeBinaryPath": {
+          "type": "string",
+          "default": "",
+          "description": "Custom path for the `ruff` binary when using the native server. If no value is set, the `ruff` command will be detected from the runtime environment."
         },
         "ruff.serverPath": {
           "type": "string",
@@ -306,6 +317,8 @@
     ]
   },
   "dependencies": {
+    "semver": "^7.6.2",
     "toml": "^3.0.0"
-  }
+  },
+  "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
 }
