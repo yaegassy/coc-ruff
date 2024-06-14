@@ -1,6 +1,32 @@
 import { LanguageClient, LanguageClientOptions, ServerOptions, workspace } from 'coc.nvim';
+import { RUFF_SERVER_CMD, RUFF_SERVER_REQUIRED_ARGS } from './constant';
 
 import which from 'which';
+
+export function createNativeServerClient(command: string) {
+  const settings = workspace.getConfiguration('ruff');
+  const newEnv = { ...process.env };
+  const args = [RUFF_SERVER_CMD, ...RUFF_SERVER_REQUIRED_ARGS];
+
+  const serverOptions: ServerOptions = {
+    command,
+    args,
+    options: { env: newEnv },
+  };
+
+  if (settings.enableExperimentalFormatter) {
+    newEnv.RUFF_EXPERIMENTAL_FORMATTER = '1';
+  }
+
+  const clientOptions: LanguageClientOptions = {
+    documentSelector: ['python'],
+    initializationOptions: getInitializationOptions(),
+    disabledFeatures: getLanguageClientDisabledFeatures(),
+  };
+
+  const client = new LanguageClient('ruff', 'ruff native server', serverOptions, clientOptions);
+  return client;
+}
 
 export function createLanguageClient(command: string) {
   const settings = workspace.getConfiguration('ruff');
