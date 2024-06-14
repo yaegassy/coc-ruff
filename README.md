@@ -40,7 +40,7 @@ If you do not need this feature, set `ruff.useDetectRuffCommand` to `false`.
 }
 ```
 
-## [EXPERIMENTAL] Enabling the Rust-based language server
+### [EXPERIMENTAL] Enabling the Rust-based language server
 
 To use the new Rust-based language server (ruff server), you'll need to enable the `ruff.nativeServer` setting in the coc-settings.json:
 

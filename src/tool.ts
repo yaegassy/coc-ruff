@@ -85,6 +85,7 @@ export async function getRuffBinaryPath() {
   return rufrBinaryPath;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function getToolVersion(command: string): Promise<string | undefined> {
   const versionCmd = `${command} --version`;
 
@@ -96,6 +97,7 @@ async function getToolVersion(command: string): Promise<string | undefined> {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function isRuffNativeServerSupported(versionStr: string): boolean {
   const parsedSemver = semver.parse(versionStr);
   if (parsedSemver) {

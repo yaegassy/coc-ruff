@@ -1,7 +1,6 @@
 import { ExtensionContext, LanguageClient, services, window, workspace } from 'coc.nvim';
 
 import fs from 'fs';
-import which from 'which';
 
 import { createLanguageClient, createNativeServerClient } from './client';
 import * as builtinInstallServerCommandFeature from './commands/builtinInstallServer';
