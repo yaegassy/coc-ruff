@@ -8,6 +8,7 @@ import * as executeAutofixCommandFeature from './commands/executeAutofix';
 import * as executeFormatCommandFeature from './commands/executeFormat';
 import * as executeOrganizeImportsCommandFeature from './commands/executeOrganizeImports';
 import * as restartCommandFeature from './commands/restart';
+import * as debugInformationCommandFeature from './commands/debugInformation';
 import * as showOutputCommandFeature from './commands/showOutput';
 import * as autoFixOnSaveFeature from './features/autoFixOnSave';
 import * as showDocumentationCodeActionFeature from './features/showDocumentation';
@@ -51,6 +52,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
   executeAutofixCommandFeature.register(context, client);
   executeOrganizeImportsCommandFeature.register(context, client);
   executeFormatCommandFeature.register(context, client);
+  debugInformationCommandFeature.register(context, client);
   restartCommandFeature.register(context, client);
   autoFixOnSaveFeature.register(client);
   showDocumentationCodeActionFeature.register(context, client);
