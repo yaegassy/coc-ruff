@@ -303,6 +303,11 @@
         "title": "Format imports"
       },
       {
+        "title": "Print debug information (native server only)",
+        "category": "Ruff",
+        "command": "ruff.debugInformation"
+      },
+      {
         "command": "ruff.showOutput",
         "title": "Show ruff output channel"
       },
