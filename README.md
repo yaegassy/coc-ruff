@@ -128,7 +128,7 @@ To use the built-in installation feature, execute the following command.
 
 - `ruff.enable`: Enable coc-ruff extension, default: `true`
 - `ruff.nativeServer`: Use the integrated Rust-based language server, available now in Beta, default: `false`
-- `ruff.nativeBinaryPath`: Custom path for the `ruff` binary when using the native server. If no value is set, the `ruff` command will be detected from the runtime environment, default: `false`
+- `ruff.nativeBinaryPath`: Custom path for the `ruff` binary when using the native server. If no value is set, the `ruff` command will be detected from the runtime environment, default: `""`
 - `ruff.disableDocumentFormatting`: Disable document formatting only, default: `false`
 - `ruff.disableHover`: Disable hover only, default: `false`
 - `ruff.useDetectRuffCommand`: Automatically detects the ruff command in the execution environment and sets `ruff.path`, default: `true`
