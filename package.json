@@ -1,6 +1,6 @@
 {
   "name": "@yaegassy/coc-ruff",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "ruff-lsp extension for coc.nvim",
   "author": "yaegassy <yosstools@gmail.com>",
   "license": "MIT",
