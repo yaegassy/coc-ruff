@@ -56,6 +56,7 @@ type ImportStrategy = 'fromEnvironment' | 'useBundled';
 
 type Run = 'onType' | 'onSave';
 
+type ConfigPreference = 'editorFirst' | 'filesystemFirst' | 'editorOnly';
 type CodeAction = {
   disableRuleComment?: {
     enable?: boolean;
@@ -69,10 +70,15 @@ type Lint = {
   enable?: boolean;
   args?: string[];
   run?: Run;
+  preview?: boolean;
+  select?: string[];
+  extendSelect?: string[];
+  ignore?: string[];
 };
 
 type Format = {
   args?: string[];
+  preview?: boolean;
 };
 
 type RuffLspInitializationOptions = {
@@ -90,6 +96,9 @@ type RuffLspInitializationOptions = {
     fixAll: boolean;
     lint: Lint;
     format: Format;
+    exclude?: string[];
+    lineLength?: number;
+    configurationPreference?: ConfigPreference;
   };
 };
 
@@ -118,13 +127,21 @@ function convertFromWorkspaceConfigToInitializationOptions() {
         enable: settings.get<boolean>('lint.enable') ?? true,
         run: getLintRunSetting(),
         args: getLintArgsSetting(),
+        preview: settings.get<boolean>('lint.preview'),
+        select: settings.get<string[]>('lint.select'),
+        extendSelect: settings.get<string[]>('lint.extendSelect'),
+        ignore: settings.get<string[]>('lint.ignore'),
       },
       format: {
         args: settings.get<string[]>('format.args'),
+        preview: settings.get<boolean>('format.preview'),
       },
       showNotifications: settings.get<string>('showNotifications') ?? 'off',
       // MEMO: Used in ruff-lsp v0.0.41 and earlier. This item will be removed in the future
       enableExperimentalFormatter: settings.get<boolean>('enableExperimentalFormatter') ?? false,
+      exclude: settings.get<string[]>('exclude'),
+      lineLength: settings.get<number>('lineLength'),
+      configurationPreference: settings.get<ConfigPreference>('configurationPreference') ?? 'editorFirst',
     },
   };
 

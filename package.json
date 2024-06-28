@@ -145,6 +145,39 @@
           "scope": "resource",
           "type": "array"
         },
+        "ruff.lint.preview": {
+          "default": null,
+          "description": "Enable [preview mode](https://docs.astral.sh/ruff/settings/#lint_preview) for the linter; enables unstable rules and fixes. This setting is used only by the native server.",
+          "scope": "resource",
+          "type": "boolean"
+        },
+        "ruff.lint.select": {
+          "default": null,
+          "description": "Set rule codes to enable. Use `ALL` to enable all rules. See [the documentation](https://docs.astral.sh/ruff/settings/#lint_select) for more details. This setting is used only by the native server.",
+          "items": {
+            "type": "string"
+          },
+          "scope": "resource",
+          "type": "array"
+        },
+        "ruff.lint.extendSelect": {
+          "default": null,
+          "description": "Enable additional rule codes on top of existing configuration, instead of overriding it. Use `ALL` to enable all rules. This setting is used only by the native server.",
+          "items": {
+            "type": "string"
+          },
+          "scope": "resource",
+          "type": "array"
+        },
+        "ruff.lint.ignore": {
+          "default": null,
+          "description": "Set rule codes to disable. See [the documentation](https://docs.astral.sh/ruff/settings/#lint_ignore) for more details. This setting is used only by the native server.",
+          "items": {
+            "type": "string"
+          },
+          "scope": "resource",
+          "type": "array"
+        },
         "ruff.run": {
           "default": null,
           "description": "Run Ruff on every keystroke (`onType`) or on save (`onSave`).",
@@ -190,6 +223,12 @@
           },
           "scope": "resource",
           "type": "array"
+        },
+        "ruff.format.preview": {
+          "default": null,
+          "description": "Enable [preview mode](https://docs.astral.sh/ruff/settings/#format_preview) for the formatter; enables unstable formatting. This setting is used only by the native server.",
+          "scope": "resource",
+          "type": "boolean"
         },
         "ruff.path": {
           "default": [],
@@ -270,6 +309,40 @@
           ],
           "scope": "machine",
           "type": "string"
+        },
+        "ruff.exclude": {
+          "default": null,
+          "items": {
+            "type": "string"
+          },
+          "description": "Set paths for the linter and formatter to ignore. See [the documentation](https://docs.astral.sh/ruff/settings/#lint_exclude) for more details. This setting is used only by the native server.",
+          "type": "array",
+          "scope": "resource"
+        },
+        "ruff.lineLength": {
+          "default": null,
+          "description": "Set the [line length](https://docs.astral.sh/ruff/settings/#line-length) used by the formatter and linter. Must be greater than 0 and less than or equal to 320. This setting is used only by the native server.",
+          "scope": "resource",
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "ruff.configurationPreference": {
+          "enum": [
+            "editorFirst",
+            "filesystemFirst",
+            "editorOnly"
+          ],
+          "enumDescriptions": [
+            "The default strategy - configuration set in the editor takes priority over configuration set in `.toml` files.",
+            "An alternative strategy - configuration set in `.toml` files takes priority over configuration set in the editor.",
+            "An alternative strategy - configuration set in `.toml` files is ignored entirely."
+          ],
+          "description": "The preferred method of resolving configuration in the editor with local configuration froml `.toml` files. This setting is used only by the native server.",
+          "scope": "resource",
+          "type": "string",
+          "default": "editorFirst"
         },
         "ruff.enableExperimentalFormatter": {
           "default": false,
