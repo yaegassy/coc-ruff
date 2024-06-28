@@ -57,6 +57,7 @@ type ImportStrategy = 'fromEnvironment' | 'useBundled';
 type Run = 'onType' | 'onSave';
 
 type ConfigPreference = 'editorFirst' | 'filesystemFirst' | 'editorOnly';
+
 type CodeAction = {
   disableRuleComment?: {
     enable?: boolean;
@@ -99,6 +100,7 @@ type RuffLspInitializationOptions = {
     exclude?: string[];
     lineLength?: number;
     configurationPreference?: ConfigPreference;
+    showSyntaxErrors: boolean;
   };
 };
 
@@ -142,6 +144,7 @@ function convertFromWorkspaceConfigToInitializationOptions() {
       exclude: settings.get<string[]>('exclude'),
       lineLength: settings.get<number>('lineLength'),
       configurationPreference: settings.get<ConfigPreference>('configurationPreference') ?? 'editorFirst',
+      showSyntaxErrors: settings.get<boolean>('showSyntaxErrors') ?? true,
     },
   };
 
