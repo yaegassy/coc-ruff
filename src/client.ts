@@ -58,6 +58,8 @@ type Run = 'onType' | 'onSave';
 
 type ConfigPreference = 'editorFirst' | 'filesystemFirst' | 'editorOnly';
 
+type LogLevel = 'error' | 'warn' | 'info' | 'debug' | 'trace';
+
 type CodeAction = {
   disableRuleComment?: {
     enable?: boolean;
@@ -101,6 +103,8 @@ type RuffLspInitializationOptions = {
     lineLength?: number;
     configurationPreference?: ConfigPreference;
     showSyntaxErrors: boolean;
+    logLevel?: LogLevel;
+    logFile?: string;
   };
 };
 
@@ -145,6 +149,8 @@ function convertFromWorkspaceConfigToInitializationOptions() {
       lineLength: settings.get<number>('lineLength'),
       configurationPreference: settings.get<ConfigPreference>('configurationPreference') ?? 'editorFirst',
       showSyntaxErrors: settings.get<boolean>('showSyntaxErrors') ?? true,
+      logLevel: settings.get<LogLevel>('logLevel'),
+      logFile: settings.get<string>('logFile'),
     },
   };
 

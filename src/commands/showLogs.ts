@@ -4,7 +4,7 @@ export async function register(context: ExtensionContext, client: LanguageClient
   await client.onReady();
 
   context.subscriptions.push(
-    commands.registerCommand('ruff.showOutput', () => {
+    commands.registerCommand('ruff.showLogs', () => {
       if (client.outputChannel) {
         client.outputChannel.show();
       }

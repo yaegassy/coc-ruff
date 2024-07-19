@@ -9,7 +9,7 @@ import * as executeFormatCommandFeature from './commands/executeFormat';
 import * as executeOrganizeImportsCommandFeature from './commands/executeOrganizeImports';
 import * as restartCommandFeature from './commands/restart';
 import * as debugInformationCommandFeature from './commands/debugInformation';
-import * as showOutputCommandFeature from './commands/showOutput';
+import * as showLogsCommandFeature from './commands/showLogs';
 import * as autoFixOnSaveFeature from './features/autoFixOnSave';
 import * as showDocumentationCodeActionFeature from './features/showDocumentation';
 import { getRuffLspPath, getRuffBinaryPath } from './tool';
@@ -48,7 +48,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
   context.subscriptions.push(services.registLanguageClient(client));
 
   builtinInstallServerCommandFeature.register(context, client);
-  showOutputCommandFeature.register(context, client);
+  showLogsCommandFeature.register(context, client);
   executeAutofixCommandFeature.register(context, client);
   executeOrganizeImportsCommandFeature.register(context, client);
   executeFormatCommandFeature.register(context, client);

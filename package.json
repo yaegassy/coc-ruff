@@ -356,6 +356,25 @@
           "scope": "machine",
           "type": "boolean"
         },
+        "ruff.logLevel": {
+          "default": null,
+          "markdownDescription": "Controls the log level of the language server.\n\n**This setting is used only by the native server.**",
+          "enum": [
+            "error",
+            "warning",
+            "info",
+            "debug",
+            "trace"
+          ],
+          "scope": "window",
+          "type": "string"
+        },
+        "ruff.logFile": {
+          "default": null,
+          "markdownDescription": "Path to the log file for the language server.\n\n**This setting is used only by the native server.**",
+          "scope": "window",
+          "type": "string"
+        },
         "ruff.trace.server": {
           "type": "string",
           "enum": [
@@ -387,8 +406,8 @@
         "command": "ruff.debugInformation"
       },
       {
-        "command": "ruff.showOutput",
-        "title": "Show ruff output channel"
+        "command": "ruff.showLogs",
+        "title": "Show logs"
       },
       {
         "command": "ruff.restart",
