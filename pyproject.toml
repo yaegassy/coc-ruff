@@ -5,9 +5,8 @@ description = ""
 authors = ["yaegassy <yosstools@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.13"
-ruff-lsp = "0.0.57"
-
+python = "^3.8"
+ruff-lsp = "0.0.58"
 
 [build-system]
 requires = ["poetry-core"]
