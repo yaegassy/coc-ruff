@@ -1,7 +1,7 @@
 {
   "name": "@yaegassy/coc-ruff",
   "version": "0.7.10",
-  "description": "ruff-lsp extension for coc.nvim",
+  "description": "ruff server extension for coc.nvim",
   "author": "yaegassy <yosstools@gmail.com>",
   "license": "MIT",
   "main": "lib/index.js",
@@ -108,7 +108,7 @@
           "description": "Turns auto fix on save on or off."
         },
         "ruff.nativeServer": {
-          "default": false,
+          "default": true,
           "description": "Use the integrated Rust-based language server, available now in Beta.",
           "type": "boolean"
         },
