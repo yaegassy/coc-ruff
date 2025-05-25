@@ -1,12 +1,12 @@
 import { LanguageClient, LanguageClientOptions, ServerOptions, workspace } from 'coc.nvim';
-import { RUFF_SERVER_CMD, RUFF_SERVER_REQUIRED_ARGS } from './constant';
+import { RUFF_SERVER_SUBCOMMAND } from './constant';
 
 import which from 'which';
 
 export function createNativeServerClient(command: string) {
   const settings = workspace.getConfiguration('ruff');
   const newEnv = { ...process.env };
-  const args = [RUFF_SERVER_CMD, ...RUFF_SERVER_REQUIRED_ARGS];
+  const args = [RUFF_SERVER_SUBCOMMAND];
 
   const serverOptions: ServerOptions = {
     command,
